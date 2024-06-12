@@ -4,7 +4,9 @@
  * @param {number} r - The red color value (0-255).
  * @param {number} g - The green color value (0-255).
  * @param {number} b - The blue color value (0-255).
- * @returns {number[]} - An array containing the hue (0, 360), saturation(0, 255), and value(0, 255) of the color.
+ * @returns {number[]} - An array containing the hue (0 - 360),
+ * saturation(0 - 255),
+ * and value(0 - 255) of the color.
  * @see {@link https://tomari.org/main/java/color/ccal.html}
  */
 function Rgb2Hsv(r, g, b) {
@@ -24,6 +26,11 @@ function Rgb2Hsv(r, g, b) {
 		h = (60 * (r - g)) / (_max - _min) + 240
 	}
 
+	//to [0, 360)
+	if (h < 0) {
+		h += 360
+	}
+
 	//saturation
 	let s = 0
 	if (_max != 0) {
@@ -31,6 +38,7 @@ function Rgb2Hsv(r, g, b) {
 	} else {
 		s = 0
 	}
+	s *= 255.0
 
 	//brightness
 	let v = _max
@@ -51,7 +59,7 @@ function Hsv2Rgb(h, s, v) {
 	//https://tomari.org/main/java/color/ccal.html
 
 	let _max = v
-	let _min = _max - (s / 255.0) * max
+	let _min = _max - (s / 255.0) * _max
 
 	if (0 <= h && h <= 60) {
 		r = _max
