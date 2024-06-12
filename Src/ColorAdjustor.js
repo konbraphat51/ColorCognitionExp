@@ -1,3 +1,12 @@
+/**
+ * Converts RGB color values to HSV color model.
+ *
+ * @param {number} r - The red color value (0-255).
+ * @param {number} g - The green color value (0-255).
+ * @param {number} b - The blue color value (0-255).
+ * @returns {number[]} - An array containing the hue (0, 360), saturation(0, 255), and value(0, 255) of the color.
+ * @see {@link https://tomari.org/main/java/color/ccal.html}
+ */
 function Rgb2Hsv(r, g, b) {
 	//https://tomari.org/main/java/color/ccal.html
 
@@ -29,6 +38,15 @@ function Rgb2Hsv(r, g, b) {
 	return [h, s, v]
 }
 
+/**
+ * Converts HSV color values to RGB color model.
+ *
+ * @param {number} h - The hue value (0-360).
+ * @param {number} s - The saturation value (0-255).
+ * @param {number} v - The value/brightness value (0-255).
+ * @returns {number[]} - An array containing the red (0-255), green (0-255), and blue (0-255) color values.
+ * @see {@link https://tomari.org/main/java/color/ccal.html}
+ */
 function Hsv2Rgb(h, s, v) {
 	//https://tomari.org/main/java/color/ccal.html
 
