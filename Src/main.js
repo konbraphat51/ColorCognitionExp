@@ -17,9 +17,9 @@ function RidBrightness(v) {
 	let colors = PickAllColor()
 
 	//per pixel
-	for (let cnt = 0; cnt < colors.length; cnt += 4) {
+	for (let cnt = 0; cnt < colors.length; cnt++) {
 		//get color
-		let rgb = [colors[cnt], colors[cnt + 1], colors[cnt + 2]]
+		let rgb = [colors[cnt][0], colors[cnt][1], colors[cnt][2]]
 
 		//convert to hsv
 		let hsv = Rgb2Hsv(rgb[0], rgb[1], rgb[2])
@@ -28,12 +28,12 @@ function RidBrightness(v) {
 		hsv[2] = v
 
 		//re-convert to rgb
-		rgb = Hsv2Rgb(hsv[0], hsv[1], hsv[2])
+		let rgb_altered = Hsv2Rgb(hsv[0], hsv[1], hsv[2])
 
 		//set color
-		colors[cnt] = rgb[0]
-		colors[cnt + 1] = rgb[1]
-		colors[cnt + 2] = rgb[2]
+		colors[cnt][0] = rgb_altered[0]
+		colors[cnt][1] = rgb_altered[1]
+		colors[cnt][2] = rgb_altered[2]
 	}
 
 	//deploy
