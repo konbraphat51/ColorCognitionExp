@@ -12,8 +12,12 @@
 		<script src="HotSoupScript_Physics/Private/ModulesLoader.js"></script>
 
 		<input type="file" accept="image/*" onchange="LoadImage(event)" />
+		<br />
 
-		<button onclick="RidBrightness(125)">Rid brightness(V)</button>
+		<input type="range" min="0" max="255" value="0" id="ValueInput" />
+
+		<button onclick="RidBrightness()">Rid brightness(V)</button>
+		<button onclick="RidSaturation()">Rid Saturation(S)</button>
 
 		<!-- Write your main code here -->
 		<script src="Src/main.js"></script>
